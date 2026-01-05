@@ -49,16 +49,24 @@ Within the **Settings > Profile** page, a new "SSO Accounts" section is added. T
 
 ![User Profile Patch](./screenshots/jellyfin_sso_ui_profile_page.png)
 
-## Supported Versions
-The following versions were used for development and testing. Compatibility with other versions is not guaranteed but in theory it should work.
-|  | Version | Comment |
+## Caveats
+
+> [!WARNING]
+> Using versions outside of those listed below may result in unexpected UI behavior or broken functionality due to changes in Jellyfin's internal DOM structure or the SSO plugin's API schema.
+
+- **Admin Impersonation Limitation**: When an administrator edits another user's profile via **Dashboard > Users > Edit User > "Edit this user's profile, image and personal preferences."**, the "SSO Accounts" section will still display and affect the **administrator's** own SSO links, not the links of the user being edited.
+- **DOM Sensitivity**: Because this script relies on a `MutationObserver` to inject elements into the Jellyfin SPA, major updates to the Jellyfin web client may require script updates.
+- **Provider Paths**: Ensure your `SSO_URL` matches your specific provider; otherwise, the login button will return a 404 or a plugin error.
+
+### Supported Versions
+The following versions were used for development and testing:
+
+| Component | Version | Comment |
 | :--- | :--- | :--- |
 | Jellyfin [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin) | 10.11.4 | Stable on 10.11.x releases |
 | SSO-Auth [9p4/jellyfin-plugin-sso](https://github.com/9p4/jellyfin-plugin-sso)| 4.0.0.3 | Needs further testing |
-| JS Injector [n00bcodr/Jellyfin-JavaScript-Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector)| 3.2.0.0 | Reasonable compatibility expected across all versions |
+| JS Injector [n00bcodr/Jellyfin-JavaScript-Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector)| 3.2.0.0 | High compatibility expected |
 
-> [!NOTE]
-> Using versions outside of those listed above may result in unexpected UI behavior due to changes in Jellyfin's internal DOM structure.
 ## Technical Details
 
 - **API Interaction**: Uses the native `ApiClient` global object to fetch provider names via `sso/OID/GetNames` and `sso/SAML/GetNames`.
