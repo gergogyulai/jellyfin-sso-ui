@@ -36,6 +36,18 @@ const SSO_URL = "/sso/OID/start/authentik";
 
 Update this string to match your provider's specific OID or SAML start path as configured in your Jellyfin SSO plugin settings.
 
+## Screenshots
+
+### Login Page Patch
+The script injects a "Sign in with SSO" button inside the login form, matching the native Jellyfin button styling and primary theme colors.
+
+![Login Page Patch](./screenshots/jellyfin_sso_ui_login_form.png)
+
+### User Profile Patch
+Within the **Settings > Profile** page, a new "SSO Accounts" section is added. This allows users to view linked providers and manage their external identity links without leaving the application.
+
+![User Profile Patch](./screenshots/jellyfin_sso_ui_profile_page.png)
+
 ## Technical Details
 
 - **API Interaction**: Uses the native `ApiClient` global object to fetch provider names via `sso/OID/GetNames` and `sso/SAML/GetNames`.
