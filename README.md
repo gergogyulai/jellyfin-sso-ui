@@ -7,7 +7,6 @@ While the backend SSO plugin is fine, it requires manual HTML/CSS branding for a
 ## Features
 - **SSO Login Button**: Injects a "Sign in with SSO" button on the login page (no need for hacky "Manual Branding" in the Jellyfin settings).
 - **Integrated Self-Service**: Implements all functionality of the plugin's dedicated linking page (`/SSOViews/linking`) directly within the **User Profile** settings. Users can link and unlink accounts without ever leaving the main Jellyfin UI.
-- **Account Linking**: Allows existing users to link their Jellyfin accounts to SSO providers without visiting external `/SSOViews/linking` URLs.
 - **Native Look & Feel**: Uses Jellyfin’s internal components to match the server theme perfectly.
 
 ## Installation
