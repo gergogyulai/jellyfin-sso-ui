@@ -5,9 +5,9 @@ This script aims to improve the [Jellyfin SSO Auth Plugin](https://github.com/9p
 While the backend SSO plugin is fine, it requires manual HTML/CSS branding for a login button and needs a separate, external-feeling page (`/SSOViews/linking`) to manage account links. This script integrates that functionality directly into the existing Jellyfin Web interface.
 
 ## Features
-- **SSO Login Button**: Injects a "Sign in with SSO" button on the login page (no need for hacky "Manual Branding" in the Jellyfin settings).
-- **Integrated Self-Service**: Implements all functionality of the plugin's dedicated linking page (`/SSOViews/linking`) directly within the **User Profile** settings. Users can link and unlink accounts without ever leaving the main Jellyfin UI.
-- **Native Look & Feel**: Uses Jellyfin’s internal components to match the server theme perfectly.
+- **SSO Login Button**: Injects a "Sign in with SSO" button on the login page (no need for hacky manual branding).
+- **Integrated Self-Service**: Implements all functionality of the plugin's linking page (`/SSOViews/linking`) directly in the **User Profile** settings. Users can link and unlink accounts without ever leaving the main Jellyfin UI.
+- **Native Look & Feel**: Uses the internal Jellyfin components to match the server theme perfectly.
 
 ## Installation
 
