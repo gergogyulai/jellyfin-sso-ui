@@ -15,6 +15,7 @@ While the backend SSO plugin is fine, it requires manual HTML/CSS branding for a
 This script requires a Jellyfin server with the SSO plugin ([jellyfin-plugin-sso](https://github.com/9p4/jellyfin-plugin-sso)) installed and configured.
 
 ### Method 1: Injecting using Jellyfin-JavaScript-Injector (Recommended)
+0. Ensure your setup is supported ([Check Supported Versions](#supported-versions))
 1. Install [Jellyfin-JavaScript-Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector).
 2. Navigate to **Dashboard > JS Injector** in the Plugins section on the sidebar.
 3. Add a new script and name it (e.g., "SSO UI").
@@ -48,6 +49,16 @@ Within the **Settings > Profile** page, a new "SSO Accounts" section is added. T
 
 ![User Profile Patch](./screenshots/jellyfin_sso_ui_profile_page.png)
 
+## Supported Versions
+The following versions were used for development and testing. Compatibility with other versions is not guaranteed but in theory it should work.
+|  | Version | Comment |
+| :--- | :--- | :--- |
+| Jellyfin [jellyfin/jellyfin](https://github.com/jellyfin/jellyfin) | 10.11.4 | Stable on 10.11.x releases |
+| SSO-Auth [9p4/jellyfin-plugin-sso](https://github.com/9p4/jellyfin-plugin-sso)| 4.0.0.3 | Needs further testing |
+| JS Injector [n00bcodr/Jellyfin-JavaScript-Injector](https://github.com/n00bcodr/Jellyfin-JavaScript-Injector)| 3.2.0.0 | Reasonable compatibility expected across all versions |
+
+> [!NOTE]
+> Using versions outside of those listed above may result in unexpected UI behavior due to changes in Jellyfin's internal DOM structure.
 ## Technical Details
 
 - **API Interaction**: Uses the native `ApiClient` global object to fetch provider names via `sso/OID/GetNames` and `sso/SAML/GetNames`.
